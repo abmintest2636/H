@@ -25,3 +25,6 @@ TypeScript
 Не ламати існуючу логіку шифрування (AES pipeline залишається)
 Зберегти сумісність з існуючою схемою БД (IV як base64 в БД — можна залишити, просто не конвертувати зайвий раз в пам'яті)
 Показати diff або до/після для кожного пункту
+
+
+Зроби новий endpoint для file upload який приймає multipart/form-data. Pipeline: busboy → AES transform → S3 multipart upload. Старий base64-JSON endpoint не чіпай, він залишається для мобілки.
