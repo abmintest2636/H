@@ -28,3 +28,14 @@ TypeScript
 
 
 Зроби новий endpoint для file upload який приймає multipart/form-data. Pipeline: busboy → AES transform → S3 multipart upload. Старий base64-JSON endpoint не чіпай, він залишається для мобілки.
+
+
+---
+
+Зроби #1, #3, #7.
+
+#1 — team lookup один раз, передай teamId у всі persist-виклики замість N запитів.
+#3 — Promise.all для незалежних перевірок в контролері.
+#7 — тюнінг multipart: partSize 8-16MB, queueSize 6-8.
+
+---
