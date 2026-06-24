@@ -50,3 +50,14 @@ TypeScript
 Зараз браузер відправляє файл як один великий запит. Сервер отримує його, шифрує і заливає в S3 паралельними чанками (те що ми вже налаштували).
 
 Ідея — браузер сам ріже файл на частини і відправляє їх паралельно кількома з'єднаннями одночасно. Браузер має кілька TCP каналів і може використати їх всі.
+
+
+
+Backend
+
+- Replaced buffering with streaming — files are streamed through AES directly to S3 without being fully loaded into memory.
+- Removed per-file team lookup — a single database query is used instead of N queries.
+- Parallelized independent validation checks using "Promise.all".
+- Tuned S3 multipart upload configuration ("partSize" / "queueSize").
+- Added scrypt caching — encryption key is derived only once and reused.
+- Optimized "renameDocument" using S3 server-side copy instead of download/upload operations.
