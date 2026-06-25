@@ -61,3 +61,8 @@ Backend
 - Tuned S3 multipart upload configuration ("partSize" / "queueSize").
 - Added scrypt caching — encryption key is derived only once and reused.
 - Optimized "renameDocument" using S3 server-side copy instead of download/upload operations.
+
+Frontend (A1 / A2)
+
+- A1 — Files are passed directly to "FormData" without unnecessary binary string conversion.
+- A2 — "File" objects are stored outside of "cloneDeep" to prevent them from being lost during modal editing.
